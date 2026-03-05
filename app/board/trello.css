@@ -1,0 +1,236 @@
+/* Trello board styles – scoped under .trello-board */
+
+.trello-board .board {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  overflow-x: auto;
+  min-height: calc(100vh - 52px);
+  align-items: flex-start;
+}
+
+.trello-board .list {
+  flex: 0 0 272px;
+  background-color: #ebecf0;
+  border-radius: 8px;
+  padding: 12px;
+  max-height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+}
+
+.trello-board .list h2 {
+  margin: 0 0 12px 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #172b4d;
+  padding: 4px 0;
+}
+
+.trello-board .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.trello-board .card {
+  position: relative;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 10px 12px;
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.15);
+  cursor: pointer;
+}
+
+.trello-board .card:hover {
+  background-color: #f4f5f7;
+}
+
+.trello-board .card-overdue-label {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  padding: 1px 5px;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #fff;
+  background-color: #eb5a46;
+  border-radius: 3px;
+}
+
+.trello-board .card.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+}
+
+.trello-board .card[draggable="true"] {
+  cursor: grab;
+}
+
+.trello-board .list.drag-over {
+  background-color: #d0d3da;
+  outline: 2px dashed #388bff;
+  outline-offset: -2px;
+}
+
+.trello-board .card h3 {
+  margin: 0 0 4px 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.trello-board .card p {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: #5e6c84;
+  line-height: 1.4;
+}
+
+.trello-board .card-due-date {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: #5e6c84;
+}
+
+.trello-board .card-due-date::before {
+  content: "📅 ";
+}
+
+.trello-board .card-due-date--none {
+  color: #97a0af;
+}
+
+.trello-board .card-due-date--none::before {
+  content: "";
+}
+
+.trello-board .add-card-btn {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  color: #5e6c84;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trello-board .add-card-btn:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  color: #172b4d;
+}
+
+.trello-board .add-card-form,
+.trello-board .edit-card-form {
+  margin-top: 0;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.15);
+}
+
+.trello-board .edit-card-form {
+  margin: 0;
+  box-shadow: none;
+}
+
+.trello-board .card-title-input,
+.trello-board .card-desc-input {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  border: 1px solid #dfe1e6;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.trello-board .card-title-input:focus,
+.trello-board .card-desc-input:focus,
+.trello-board .card-due-input:focus {
+  outline: none;
+  border-color: #388bff;
+  box-shadow: 0 0 0 2px rgba(56, 139, 255, 0.25);
+}
+
+.trello-board .due-date-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.8125rem;
+  color: #5e6c84;
+}
+
+.trello-board .card-due-input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  font-family: inherit;
+  border: 1px solid #dfe1e6;
+  border-radius: 4px;
+}
+
+.trello-board .add-card-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.trello-board .btn {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.trello-board .btn-primary {
+  background-color: #0c66e4;
+  color: #fff;
+}
+
+.trello-board .btn-primary:hover {
+  background-color: #0055cc;
+}
+
+.trello-board .btn-cancel {
+  background: none;
+  color: #5e6c84;
+}
+
+.trello-board .btn-cancel:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  color: #172b4d;
+}
+
+.trello-board .board-header {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.trello-board .board-header h1 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.trello-board .board-wrapper {
+  background-color: #1d2125;
+  color: #172b4d;
+  min-height: 100vh;
+}
